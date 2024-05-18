@@ -1,0 +1,30 @@
+When you assign 42 to the spam variable, you are actually creating the 42 value in the computer’s memory
+and storing a reference to it in the spam variable. When you copy the value in spam and assign it to the
+variable cheese, you are actually copying the reference. Both the spam and cheese variables refer to the 42
+value in the computer’s memory. When you later change the value in spam to 100, you’re creating a new 100
+value and storing a reference to it in spam. This doesn’t affect the value in cheese. Integers are immutable
+values that don’t change; changing the spam variable is actually making it refer to a completely different
+value in memory.
+
+But lists don’t work this way, because list values can change; that is, lists are mutable. Here is some code
+that will make this distinction easier to understand. Enter this into the interactive shell:
+
+➊ >>> spam = [0, 1, 2, 3, 4, 5]
+➋ >>> cheese = spam # The reference is being copied, not the list.
+➌ >>> cheese[1] = 'Hello!' # This changes the list value.
+   >>> spam
+   [0, 'Hello!', 2, 3, 4, 5]
+   >>> cheese # The cheese variable refers to the same list.
+   [0, 'Hello!', 2, 3, 4, 5]
+
+This might look odd to you. The code touched only the cheese list, but it seems that both the cheese and spam
+lists have changed.
+
+When you create the list ➊, you assign a reference to it in the spam variable. But the next line ➋ copies only
+the list reference in spam to cheese, not the list value itself. This means the values stored in spam and cheese
+now both refer to the same list. There is only one underlying list because the list itself was never actually
+copied. So when you modify the first element of cheese ➌, you are modifying the same list that spam refers to.
+
+Remember that variables are like boxes that contain values. The previous figures in this chapter show that lists
+in boxes aren’t exactly accurate, because list variables don’t actually contain lists—they contain references to
+lists. (These references will have ID numbers that Python uses internally, but you can ignore them.)
