@@ -1,0 +1,29 @@
+A dedicated virtual environment is useful for projects that make use of third-party packages installed with pip
+
+- Creating a virtual environment, using the standard library module venv:
+    in terminal, opened in the project's folder:
+    py -m venv venv
+
+    using py m ven ven --clear clears the contents of a pre-existing venv before creation
+
+- Activating the newly created virtual environment:
+    venv\Scripts\activate
+
+- Installing packages in the virtual environment:
+    python -m pip install <package-name>
+    This way, packages can be installed for a specific project, not interfering with any other
+
+- Deactivating the virtual environment
+    deactivate
+
+    "Python virtual environments aim to provide a lightweight,
+    isolated Python environment that you can quickly create and
+    then discard when you don’t need it anymore."
+
+- Additional information
+    - updating pip:
+        python -m pip install --upgrade pip
+    - creating without pip (less memory size):
+        python -m venv venv --without-pip
+    - allow access to globally installed packages:
+        python -m venv venv --system-site-packages
